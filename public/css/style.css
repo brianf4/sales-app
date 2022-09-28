@@ -1,0 +1,109 @@
+
+
+/* Box Model Hack */
+* {
+    box-sizing: border-box;
+}
+
+/* Clear fix hack */
+.clearfix:after {
+    content: ".";
+    display: block;
+    clear: both;
+    visibility: hidden;
+    line-height: 0;
+    height: 0;
+}
+
+.clear {
+   clear: both;
+}
+
+/******************************************
+/* BASE STYLES
+/*******************************************/
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+   padding: 2rem;
+   height: 100%;
+}
+
+h1{
+    color: red;
+}
+
+aside li {
+    border: 2px solid black;
+    
+} 
+
+aside ul {
+    border: 2px solid red;
+    padding: 1rem 0;
+    height: 100%;
+}
+
+/******************************************
+/* LAYOUT
+/*******************************************/
+nav {
+    border: 4px solid black;
+    
+}
+
+aside {
+    padding: 1rem;
+    border: 2px solid purple;
+    height: 100%;
+}
+
+
+main {
+    border: 2px solid red;
+    height: 75%;
+}
+
+
+div.mainContainer {
+    display: flex;
+    border: 2px solid lightgray;
+    height: 90vh;
+}
+
+div.leftSide {
+    border: 2px solid goldenrod;
+}
+
+div.leftSide {
+    width: 20%;
+}
+
+div.rightSide {
+    width: 80%;
+}
+
+
+
+.graph {
+    
+}
+
+/******************************************
+/* ADDITIONAL STYLES
+/*******************************************/
+
+.completed{
+    text-decoration: line-through;
+    color: gray;
+}
+.not{
+    text-decoration: underline;
+}
+
+.this-container {
+    border: 2px solid red;
+}
