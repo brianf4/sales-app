@@ -28,8 +28,7 @@ html {
 }
 
 body {
-   padding: 1rem;
-   height: 100%;
+   padding: 2rem;
 }
 
 h1{
@@ -91,7 +90,7 @@ div.rightSide {
 
 
 .graph {
-    width: auto;
+    width: 70%;
 }
 
 /******************************************

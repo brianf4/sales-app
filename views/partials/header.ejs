@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="cupcake">
+<html data-theme="emerald" lang="en">
   <head>
     <meta charset="UTF-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -30,5 +30,20 @@
     <link rel="stylesheet" href="/css/style.css" />
   </head>
   <body>
+    <div class="navbar bg-base-300 rounded-t-md">
+      <a class="btn btn-ghost normal-case text-4xl" href="/profile">Inventory Management App</a>
+      <div class="gap-x-4">
+        <h2 class="text-3xl font-semibold"><%= user.userName%></h2>
+    
+        <div class="avatar placeholder dropdown dropdown-end">
+          <label tabindex="0" class="btn m-1 bg-neutral-focus text-neutral-content rounded-full h-20 w-20 text-3xl"><%= user.userName[0]%></label>
+          <ul tabindex="0" class="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52">
+          <li class="text-center text-xl font-medium"><a>Item 1</a></li>
+          <li class="text-xl font-medium"><a>Item 2</a></li>
+      </ul>
+        </div> 
+    
+      </div>
+    </div>
   </body>
 </html>
