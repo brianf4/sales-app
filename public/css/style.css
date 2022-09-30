@@ -25,10 +25,13 @@
 
 html {
     font-size: 62.5%;
+    height: 100%;
 }
 
 body {
-   padding: 2rem;
+   padding: 1rem;
+   border: 2px solid red;
+   height: 100%;
 }
 
 h1{
@@ -107,4 +110,9 @@ div.rightSide {
 
 .this-container {
     border: 2px solid red;
+}
+
+.homepage-pic {
+    background: no-repeat center/100%  url(../imgs/undraw_all_the_data.svg);
+    overflow: auto;
 }
