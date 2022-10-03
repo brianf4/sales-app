@@ -1,5 +1,3 @@
-
-
 /* Box Model Hack */
 * {
     box-sizing: border-box;
@@ -38,12 +36,6 @@ h1{
     color: red;
 }
 
-aside li {
-    border: 2px solid black;
-    padding: .5rem;
-    border-radius: 12px;
-} 
-
 aside ul {
     padding: 1rem 0;
     height: 100%;
@@ -57,7 +49,6 @@ aside ul {
 /*******************************************/
 nav {
     border: 4px solid black;
-    
 }
 
 aside {
@@ -89,8 +80,6 @@ div.leftSide {
 div.rightSide {
     width: 80%;
 }
-
-
 
 .graph {
     width: 70%;
