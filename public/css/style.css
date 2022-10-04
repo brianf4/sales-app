@@ -27,7 +27,6 @@ html {
 }
 
 body {
-   padding: 1rem;
    border: 2px solid red;
    height: 100%;
 }
@@ -104,4 +103,8 @@ div.rightSide {
 .homepage-pic {
     background: no-repeat center/100%  url(../imgs/undraw_all_the_data.svg);
     overflow: auto;
+}
+
+#indexbg-image {
+    background: no-repeat center/90%  url(../imgs/3515462.jpg);
 }
