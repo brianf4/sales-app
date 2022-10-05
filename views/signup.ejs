@@ -1,5 +1,10 @@
 <%- include('partials/header') -%>
-    <main class="container">
+<h1 class="pt-4 text-center text-emerald-600 text-6xl font-bold hover:underline decoration-2 underline-offset-2">
+  <a class="hover:text-emerald-600 cursor-pointer" href="/">Inventory Management App</a>
+</h1>
+<div class="flex h-full w-ful">
+    <main class="container card w-4/12 h-3/6 bg-base-100 shadow-lg shadow-emerald-200	 m-auto">
+      <h3 class="text-center text-3xl font-semibold">Signup</h3>
         <div class="row justify-content-center">
             <section class="col-6 mt-5">
                 <% if (locals.messages.errors) { %>
@@ -14,26 +19,26 @@
                 <% } %>
                 <form action="/signup" method="POST">
                     <div class="mb-3">
-                        <label for="userName" class="form-label">User Name</label>
+                        <label for="userName" class="form-label text-2xl">User Name</label>
                         <input type="text" class="form-control" id="userName" name="userName">
                       </div>
                     <div class="mb-3">
-                      <label for="exampleInputEmail1" class="form-label">Email address</label>
+                      <label for="exampleInputEmail1" class="form-label text-2xl">Email address</label>
                       <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email">
-                      <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                      <div id="emailHelp" class="form-text text-base">We'll never share your email with anyone else.</div>
                     </div>
                     <div class="mb-3">
-                      <label for="password" class="form-label">Password</label>
+                      <label for="password" class="form-label text-2xl">Password</label>
                       <input type="password" class="form-control" id="password" name="password">
                     </div>
                     <div class="mb-3">
-                        <label for="confirmPassword" class="form-label">Confirm Password</label>
+                        <label for="confirmPassword" class="form-label text-2xl">Confirm Password</label>
                         <input type="password" class="form-control" id="confirmPassword" name="confirmPassword">
                       </div>
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="submit" class="btn btn-primary btn-lg">Submit</button>
                   </form>
             </section>
         </div>
     </main>
-
+</div>
 <%- include('partials/footer') -%>
