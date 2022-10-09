@@ -55,12 +55,6 @@ aside {
 }
 
 
-main {
-    height: 75%;
-    padding: 1.4rem;
-    padding-bottom: 2rem;
-}
-
 
 div.mainContainer {
     display: flex;
@@ -77,10 +71,6 @@ div.leftSide {
 
 div.rightSide {
     width: 80%;
-}
-
-.graph {
-    width: 70%;
 }
 
 /******************************************
