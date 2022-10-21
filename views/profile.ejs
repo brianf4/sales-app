@@ -51,7 +51,7 @@
 
     <div class="rightSide flex flex-col justify-around py-10 px-4 border-2 border-red-300">
         
-          <div class="stats shadow drop-shadow-sm h-40 border-2 border-black">
+          <div class="stats shadow drop-shadow-sm border-2 border-black">
     
             <div class="stat">
               <div class="stat-figure text-primary">
@@ -86,7 +86,7 @@
             
           </div>
 
-          <section class="graph flex justify-between gap-x-12 p-8 h-2/4 border-2 border-black">
+          <section class="graph flex justify-between gap-x-12 p-8 border-2 border-black">
             <div class="w-3/4 border-2 border-black">
               <canvas id="myChart" class=" border-2 border-red-300"></canvas>
             </div>
@@ -105,7 +105,7 @@
                   </div>
                   <div class="mb-3">
                     <label for="title" class="form-label">Amnt of Items</label>
-                    <input type="text" class="form-control" id="numOfItems" name="numOfItems">
+                    <input type="number" class="form-control" id="numOfItems" name="numOfItems">
                   </div>
                   <button class="btn btn-outline btn-success">Success</button>
                 </form>
@@ -114,7 +114,7 @@
           </section>
             
         
-          <div class="border-2 border-black h-1/6">
+          <div class="border-2 border-black">
             <table class="table table-zebra w-full">
               <!-- head -->
               <thead>
@@ -126,14 +126,15 @@
                 </tr>
               </thead>
               <tbody>
+              <% for (let i = 0; i < 3; i++) {%>  
                 <!-- Row -->
                 <tr class="text-2xl">
                   <th>#1</th>
                   <td>Cy Ganderton</td>
-                  <td> <%= posts[0].nameOfItem %> </td>
+                  <td> <%= posts[i].nameOfItem %> </td>
                   <td>Blue</td>
                 </tr>
-                
+              <% } %>  
               </tbody>
             </table>
           </div>
