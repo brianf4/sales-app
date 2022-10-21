@@ -4,17 +4,10 @@ const Post = require("../models/Post");
 module.exports = {
   getProfile: async (req, res) => {
     try {
-      const posts = await Post.find({ user: req.user.id });
+      const posts = await Post.findById(req.params.id);
       res.render("profile.ejs", { posts: posts, user: req.user }); 
-      console.log(posts)
-    } catch (err) {
-      console.log(err);
-    }
-  },
-  getFeed: async (req, res) => {
-    try {
-      const posts = await Post.find().sort({ createdAt: "desc" }).lean();
-      res.render("feed.ejs", { posts: posts });
+      
+      console.log(typeof req.params.id)
     } catch (err) {
       console.log(err);
     }
@@ -23,6 +16,14 @@ module.exports = {
     try {
       const post = await Post.findById(req.params.id);
       res.render("post.ejs", { post: post, user: req.user });
+    } catch (err) {
+      console.log(err);
+    }
+  },
+  getFeed: async (req, res) => {
+    try {
+      const posts = await Post.find().sort({ createdAt: "desc" }).lean();
+      res.render("feed.ejs", { posts: posts });
     } catch (err) {
       console.log(err);
     }
