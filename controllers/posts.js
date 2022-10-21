@@ -4,7 +4,7 @@ const Post = require("../models/Post");
 module.exports = {
   getProfile: async (req, res) => {
     try {
-      const posts = await Post.findById(req.params.id);
+      const posts = await Post.find({ user: req.user.id });
       res.render("profile.ejs", { posts: posts, user: req.user }); 
       console.log(posts)
     } catch (err) {
@@ -30,7 +30,7 @@ module.exports = {
   createPost: async (req, res) => {
     try {
       // Upload image to cloudinary
-      const result = await cloudinary.uploader.upload(req.file.path);
+      //const result = await cloudinary.uploader.upload(req.file.path);
 
       await Post.create({
         nameOfItem: req.body.nameOfItem,
@@ -39,7 +39,7 @@ module.exports = {
         user: req.user.id,
       });
       console.log("Post has been added!");
-      res.redirect("/profile/:id");
+      res.redirect("/profile/");
     } catch (err) {
       console.log(err);
     }
@@ -67,9 +67,9 @@ module.exports = {
       // Delete post from db
       await Post.remove({ _id: req.params.id });
       console.log("Deleted Post");
-      res.redirect("/profile/:id");
+      res.redirect("/profile/");
     } catch (err) {
-      res.redirect("/profile/:id");
+      res.redirect("/profile/");
     }
   },
 };
