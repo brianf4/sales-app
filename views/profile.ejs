@@ -126,16 +126,15 @@
                 </tr>
               </thead>
               <tbody>  
-                <%# for (let i = 0; i < 4; i++) { %>
+                <% for (let i = 0; i < 4; i++) { %>
                 <!-- Row -->
                 <tr class="text-2xl">
-                  <th>#1</th>
-                  <td> <%#  %></td>
-                  <td> </td>
-                  <td>Blue</td>
+                  <th> <%= '#' + posts[i]._id.toString().slice(-5).toUpperCase() %> </th>
+                  <td>  </td>
+                  <td><%= posts[i].nameOfItem %></td>
+                  <td><%= posts[i].costOfItem %></td>
                 </tr>
-                <%# } %>
-              <%# } %>
+                <% } %>
               </tbody>
             </table>
           </div>
