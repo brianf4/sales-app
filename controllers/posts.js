@@ -7,8 +7,6 @@ module.exports = {
       const userId = req.params.id;
       const posts = await Post.find({user: userId}) //user.id == posts.user
       const profile = await User.findById(userId);
-      console.log(posts[0]._id.toString().slice(-5).toUpperCase())
-      console.log('Profile: ', profile)
       res.render("profile.ejs", { profile: profile, user: req.user, posts: posts}); 
       
     } catch (err) {
@@ -42,6 +40,7 @@ module.exports = {
         costOfItem: req.body.costOfItem,
         numOfItems: req.body.numOfItems,
         user: req.user.id,
+        createdAt: req.body.createdAt,
       });
       console.log("Post has been added!");
       res.redirect(`/profile/${req.user._id}`);

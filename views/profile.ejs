@@ -6,7 +6,7 @@
 
     <div class="gap-x-6">
 
-      <h2 class="text-4xl font-semibold"> <%= user.userName %></h2>
+      <h2 id="change" class="text-4xl font-semibold"> <%= user.userName %></h2>
       <div class="avatar placeholder dropdown dropdown-end">
         <label tabindex="0" class="btn m-1 bg-neutral-focus text-neutral-content rounded-full h-24 w-24 text-4xl">
           <%= user.userName[0] %>
@@ -97,18 +97,19 @@
                 <form action="/post/createPost" enctype="multipart/form-data" method="POST">
                   <div class="mb-3">
                     <label for="title" class="form-label text-2xl">Name of the Item</label>
-                    <input type="text" class="form-control text-3xl" id="nameOfItem" name="nameOfItem">
+                    <input type="text" class="form-control text-3xl" id="nameOfItem" name="nameOfItem" required>
                   </div>
                   <div class="mb-3">
-                    <label for="title" class="form-label text-2xl">Cost of Item</label>
-                    <input type="text" class="form-control text-3xl" id="costOfItem" name="costOfItem">
+                    <label for="cost" class="form-label text-2xl">Cost of Item</label>
+                    <input type="text" class="form-control text-3xl" id="costOfItem" name="costOfItem" required>
                   </div>
                   <div class="mb-3">
-                    <label for="title" class="form-label text-2xl">Amnt of Items</label>
-                    <input type="number" class="form-control text-3xl" id="numOfItems" name="numOfItems">
+                    <label for="items" class="form-label text-2xl">Amnt of Items</label>
+                    <input type="number" class="form-control text-3xl" id="numOfItems" name="numOfItems" required>
                   </div>
                   <div class="mb-3 border-2">
-                    <input type="date" class="text-2xl w-full px-4" id="" name="">
+                    <label for="date"></label>
+                    <input type="date" class="text-2xl w-full px-4" id="createdAt" name="createdAt" required>
                   </div>
                   <button class="btn btn-outline btn-success">Success</button>
                 </form>
@@ -116,7 +117,7 @@
             </div>
           </section>
             
-        
+          
           <div class="border-2 border-black">
             <table class="table table-zebra w-full">
               <!-- head -->
@@ -129,11 +130,15 @@
                 </tr>
               </thead>
               <tbody>  
-                <% for (let i = 0; i < 4; i++) { %>
+                
+                <% for (let i = 0; i < posts.length; i++) { %>
+                  <% if( i === 4) {%>
+                  <% break; %>
+                  <%}%>  
                 <!-- Row -->
                 <tr class="text-2xl">
                   <th> <%= '#' + posts[i]._id.toString().slice(-5).toUpperCase() %> </th>
-                  <td>  </td>
+                  <td> <%= posts[i].createdAt %> </td>
                   <td><%= posts[i].nameOfItem %></td>
                   <td><%= posts[i].costOfItem %></td>
                 </tr>
