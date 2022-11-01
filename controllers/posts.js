@@ -8,7 +8,7 @@ module.exports = {
       const posts = await Post.find({user: userId}) //user.id == posts.user
       const profile = await User.findById(userId);
       res.render("profile.ejs", { profile: profile, user: req.user, posts: posts}); 
-      
+      console.log(posts)
     } catch (err) {
       console.log(err);
     }

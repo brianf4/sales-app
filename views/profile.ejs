@@ -186,16 +186,28 @@
     'November',
     'December'
   ];
-
+  let jan = 0; 
+  let feb = 10; 
+  let mar = 5; 
+  let apr = 2;
+  let may = 20; 
+  let jun = 30; 
+  let jul = 45; 
+  let aug = 0; 
+  let sep = 0;
+  let oct = 0; 
+  let nov = 0; 
+  let dec = 0;
+  
   const data = {
     labels: labels,
     datasets: [{
       label: 'My First dataset',
       backgroundColor: 'rgb(255, 99, 132)',
       borderColor: 'rgb(255, 99, 132)',
-      data: [0, 10, 5, 2, 20, 30, 45],
+      data: [jan, feb, mar, apr, may, jun, jul],
     }]
-  };
+  }; 
 
   const config = {
     type: 'line',
