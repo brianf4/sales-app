@@ -120,6 +120,7 @@
           
           <div class="border-2 border-black">
             <table class="table table-zebra w-full">
+              <h3>Recent Items</h3>
               <!-- head -->
               <thead>
                 <tr>
@@ -127,6 +128,7 @@
                   <th class="text-2xl font-bold">Date</th>
                   <th class="text-2xl font-bold">Name</th>
                   <th class="text-2xl font-bold">Cost</th>
+                  <th class="text-2xl font-bold">QTY</th>
                 </tr>
               </thead>
               <tbody>  
@@ -139,8 +141,21 @@
                 <tr class="text-2xl">
                   <th> <%= '#' + posts[i]._id.toString().slice(-5).toUpperCase() %> </th>
                   <td> <%= posts[i].createdAt %> </td>
-                  <td><%= posts[i].nameOfItem %></td>
-                  <td><%= posts[i].costOfItem %></td>
+                  <td> <%= posts[i].nameOfItem %> </td>
+                  <td> <%= posts[i].costOfItem %> </td>
+                  <td> <i class="p-1 border-1 border-black fa-solid fa-minus hover:cursor-pointer hover:bg-accent hover:text-white hover:border-accent rounded"></i> 
+
+                    <span class="px-3 font-semibold">1</span> 
+
+                    <i class=" p-1 border-1 border-black fa-solid fa-plus hover:cursor-pointer hover:bg-primary hover:text-white hover:border-primary rounded"></i> 
+
+                    <form action="/post/deletePost/<%= posts[i]._id %>?_method=DELETE" method="POST" class="inline">
+                      <button class="px-2" type="submit">
+                        <i class="pl-2 fa-solid fa-trash-can hover:cursor-pointer hover:-rotate-12"></i>
+                      </button>
+                    </form>
+
+                  </td>
                 </tr>
                 <% } %>
               </tbody>
