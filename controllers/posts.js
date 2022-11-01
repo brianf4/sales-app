@@ -5,10 +5,10 @@ module.exports = {
   getProfile: async (req, res) => {
     try {
       const userId = req.params.id;
-      const posts = await Post.find({user: userId}) //user.id == posts.user
+      const posts = await Post.find({user: userId}) //user.id == posts.user (users posts)
       const profile = await User.findById(userId);
       res.render("profile.ejs", { profile: profile, user: req.user, posts: posts}); 
-      console.log(posts)
+      console.log(posts[0].createdAt.split('-')[1])
     } catch (err) {
       console.log(err);
     }

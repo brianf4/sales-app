@@ -57,8 +57,8 @@
               <div class="stat-figure text-primary">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="inline-block w-8 h-8 stroke-current"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg>
               </div>
-              <div class="stat-title ">Total Likes</div>
-              <div class="stat-value text-primary">25.6K</div>
+              <div class="stat-title ">Total Items</div>
+              <div class="stat-value text-primary"> <%= posts.length %> </div>
               <div class="stat-desc">21% more than last month</div>
             </div>
             
@@ -169,7 +169,150 @@
  
 </div> 
 
+<%  function january() { %>
+<% let total = 0 %>
+<%   for (let i = 0; i < posts.length; i++){ %>
+<%   if (posts[i].createdAt.split('-')[1] === '01'){ %>
+<%     total += posts[i].costOfItem %>
+<%   } %>
+<% } %>
+<% return total %>
+<% } %>
 
+
+<%  function february() { %>
+<% let total = 0 %>
+<%   for (let i = 0; i < posts.length; i++){ %>
+<%   if (posts[i].createdAt.split('-')[1] === '02'){ %>
+<%     total += posts[i].costOfItem %>
+<%   } %>
+<% } %>
+<% return total %>
+<% } %>
+
+<%  function march() { %>
+<% let total = 0 %>
+<%   for (let i = 0; i < posts.length; i++){ %>
+<%   if (posts[i].createdAt.split('-')[1] === '03'){ %>
+<%     total += posts[i].costOfItem %>
+<%   } %>
+<% } %>
+<% return total %>
+<% } %>
+
+<%  function april() { %>
+<% let total = 0 %>
+<%   for (let i = 0; i < posts.length; i++){ %>
+<%   if (posts[i].createdAt.split('-')[1] === '04'){ %>
+<%     total += posts[i].costOfItem %>
+<%   } %>
+<% } %>
+<% return total %>
+<% } %>
+
+<%  function may() { %>
+<% let total = 0 %>
+<%   for (let i = 0; i < posts.length; i++){ %>
+<%   if (posts[i].createdAt.split('-')[1] === '05'){ %>
+<%     total += posts[i].costOfItem %>
+<%   } %>
+<% } %>
+<% return total %>
+<% } %>
+
+<%  function june() { %>
+<% let total = 0 %>
+<%   for (let i = 0; i < posts.length; i++){ %>
+<%   if (posts[i].createdAt.split('-')[1] === '06'){ %>
+<%     total += posts[i].costOfItem %>
+<%   } %>
+<% } %>
+<% return total %>
+<% } %>
+
+<%  function july() { %>
+<% let total = 0 %>
+<%   for (let i = 0; i < posts.length; i++){ %>
+<%   if (posts[i].createdAt.split('-')[1] === '07'){ %>
+<%     total += posts[i].costOfItem %>
+<%   } %>
+<% } %>
+<% return total %>
+<% } %>
+
+<%  function august() { %>
+<% let total = 0 %>
+<%   for (let i = 0; i < posts.length; i++){ %>
+<%   if (posts[i].createdAt.split('-')[1] === '01'){ %>
+<%     total += posts[i].costOfItem %>
+<%   } %>
+<% } %>
+<% return total %>
+<% } %>
+
+<%  function august() { %>
+<% let total = 0 %>
+<%   for (let i = 0; i < posts.length; i++){ %>
+<%   if (posts[i].createdAt.split('-')[1] === '08'){ %>
+<%     total += posts[i].costOfItem %>
+<%   } %>
+<% } %>
+<% return total %>
+<% } %>
+
+<%  function september() { %>
+<% let total = 0 %>
+<%   for (let i = 0; i < posts.length; i++){ %>
+<%   if (posts[i].createdAt.split('-')[1] === '09'){ %>
+<%     total += posts[i].costOfItem %>
+<%   } %>
+<% } %>
+<% return total %>
+<% } %>
+
+<%  function october() { %>
+<% let total = 0 %>
+<%   for (let i = 0; i < posts.length; i++){ %>
+<%   if (posts[i].createdAt.split('-')[1] === '10'){ %>
+<%     total += posts[i].costOfItem %>
+<%   } %>
+<% } %>
+<% return total %>
+<% } %>
+
+<%  function november() { %>
+<% let total = 0 %>
+<%   for (let i = 0; i < posts.length; i++){ %>
+<%   if (posts[i].createdAt.split('-')[1] === '11'){ %>
+<%     total += posts[i].costOfItem %>
+<%   } %>
+<% } %>
+<% return total %>
+<% } %>
+
+<%  function december() { %>
+<% let total = 0 %>
+<%   for (let i = 0; i < posts.length; i++){ %>
+<%   if (posts[i].createdAt.split('-')[1] === '12'){ %>
+<%     total += posts[i].costOfItem %>
+<%   } %>
+<% } %>
+<% return total %>
+<% } %>
+
+<% let jan = january(); %>
+<% let feb = february(); %>
+<% let mar = march(); %>
+<% let apr = april(); %>
+<% let mayy = may(); %>
+<% let jun = june(); %>
+<% let jul = july(); %>
+<% let aug = august(); %>
+<% let sep = september(); %>
+<% let oct = october() %>
+<% let nov = november(); %>
+<% let dec = december(); %>
+<% console.log(january()) %>
 
 <script>
   const labels = [
@@ -186,28 +329,16 @@
     'November',
     'December'
   ];
-  let jan = 0; 
-  let feb = 10; 
-  let mar = 5; 
-  let apr = 2;
-  let may = 20; 
-  let jun = 30; 
-  let jul = 45; 
-  let aug = 0; 
-  let sep = 0;
-  let oct = 0; 
-  let nov = 0; 
-  let dec = 0;
-  
+
   const data = {
     labels: labels,
     datasets: [{
       label: 'My First dataset',
       backgroundColor: 'rgb(255, 99, 132)',
       borderColor: 'rgb(255, 99, 132)',
-      data: [jan, feb, mar, apr, may, jun, jul],
+      data: [<%= jan %>, <%= feb %>, <%= mar %>, <%= apr %>, <%= mayy %>, <%= jun %>, <%= jul %>, <%= aug %>, <%= sep %>, <%= oct %>, <%= nov %>, <%= dec %>],
     }]
-  }; 
+  };
 
   const config = {
     type: 'line',
