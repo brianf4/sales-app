@@ -92,7 +92,7 @@
             </div>
 
             <div class="card border-2 border-black w-1/4">
-              <span class="block text-center text-5xl font-semibold py-4">Add Item</span>
+              <span id="addItem" class="block text-center text-5xl font-semibold py-4">Add Item</span>
               <div class="border-2 border-cyan-300 h-full">
                 <form action="/post/createPost" enctype="multipart/form-data" method="POST">
                   <div class="mb-3">
@@ -142,7 +142,7 @@
                   <th> <%= '#' + posts[i]._id.toString().slice(-5).toUpperCase() %> </th>
                   <td> <%= posts[i].createdAt %> </td>
                   <td> <%= posts[i].nameOfItem %> </td>
-                  <td> <%= posts[i].costOfItem %> </td>
+                  <td> <%= '$' + posts[i].costOfItem %> </td>
                   <td> <i class="p-1 border-1 border-black fa-solid fa-minus hover:cursor-pointer hover:bg-accent hover:text-white hover:border-accent rounded"></i> 
 
                     <span class="px-3 font-semibold">1</span> 
@@ -243,16 +243,6 @@
 <%  function august() { %>
 <% let total = 0 %>
 <%   for (let i = 0; i < posts.length; i++){ %>
-<%   if (posts[i].createdAt.split('-')[1] === '01'){ %>
-<%     total += posts[i].costOfItem %>
-<%   } %>
-<% } %>
-<% return total %>
-<% } %>
-
-<%  function august() { %>
-<% let total = 0 %>
-<%   for (let i = 0; i < posts.length; i++){ %>
 <%   if (posts[i].createdAt.split('-')[1] === '08'){ %>
 <%     total += posts[i].costOfItem %>
 <%   } %>
@@ -332,7 +322,7 @@
   const data = {
     labels: labels,
     datasets: [{
-      label: 'My First dataset',
+      label: 'Total Month Revenue',
       backgroundColor: 'rgb(255, 99, 132)',
       borderColor: 'rgb(255, 99, 132)',
       data: [<%= jan %>, <%= feb %>, <%= mar %>, <%= apr %>, <%= mayy %>, <%= jun %>, <%= jul %>, <%= aug %>, <%= sep %>, <%= oct %>, <%= nov %>, <%= dec %>],
@@ -353,8 +343,4 @@
 </script>
 
 
-
-
 <%- include('partials/footer') -%>
-
-

@@ -10,6 +10,7 @@ const logger = require("morgan");
 const connectDB = require("./config/database");
 const mainRoutes = require("./routes/main");
 const postRoutes = require("./routes/posts");
+//const publicJsPath = require("./public/js/main.js")
 
 //Use .env file in config folder
 require("dotenv").config({ path: "./config/.env" });
@@ -25,6 +26,9 @@ app.set("view engine", "ejs");
 
 //Static Folder
 app.use(express.static("public"));
+//app.use(express.static(publicJsPath.join(__dirname, "js")));
+
+
 
 //Body Parsing
 app.use(express.urlencoded({ extended: true }));
