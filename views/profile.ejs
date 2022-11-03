@@ -92,7 +92,7 @@
             </div>
 
             <div class="card border-2 border-black w-1/4">
-              <span id="addItem" class="block text-center text-5xl font-semibold py-4">Add Item</span>
+              <span class="block text-center text-5xl font-semibold py-4">Add Item</span>
               <div class="border-2 border-cyan-300 h-full">
                 <form action="/post/createPost" enctype="multipart/form-data" method="POST">
                   <div class="mb-3">
@@ -101,7 +101,7 @@
                   </div>
                   <div class="mb-3">
                     <label for="cost" class="form-label text-2xl">Cost of Item</label>
-                    <input type="text" class="form-control text-3xl" id="costOfItem" name="costOfItem" required>
+                    <input id="price" placeholder="$" type="text" class="form-control text-3xl" id="costOfItem" name="costOfItem" required>
                   </div>
                   <div class="mb-3">
                     <label for="items" class="form-label text-2xl">Amnt of Items</label>
