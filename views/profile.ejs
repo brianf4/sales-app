@@ -101,7 +101,7 @@
                   </div>
                   <div class="mb-3">
                     <label for="cost" class="form-label text-2xl">Cost of Item</label>
-                    <input id="price" placeholder="$" type="text" class="form-control text-3xl" id="costOfItem" name="costOfItem" required>
+                    <input id="price" placeholder="$" type="text" class="form-control text-3xl before:content-['$']" id="costOfItem" name="costOfItem" required>
                   </div>
                   <div class="mb-3">
                     <label for="items" class="form-label text-2xl">Amnt of Items</label>
@@ -142,10 +142,10 @@
                   <th> <%= '#' + posts[i]._id.toString().slice(-5).toUpperCase() %> </th>
                   <td> <%= posts[i].createdAt %> </td>
                   <td> <%= posts[i].nameOfItem %> </td>
-                  <td> <%= '$' + posts[i].costOfItem %> </td>
+                  <td> <%= '$' + posts[i].costOfItem * posts[i].numOfItems %> </td>
                   <td> <i class="p-1 border-1 border-black fa-solid fa-minus hover:cursor-pointer hover:bg-accent hover:text-white hover:border-accent rounded"></i> 
 
-                    <span class="px-3 font-semibold">1</span> 
+                    <span class="px-3 font-semibold"> <%= posts[i].numOfItems %> </span> 
 
                     <i class=" p-1 border-1 border-black fa-solid fa-plus hover:cursor-pointer hover:bg-primary hover:text-white hover:border-primary rounded"></i> 
 
@@ -194,7 +194,7 @@
 <% let total = 0 %>
 <%   for (let i = 0; i < posts.length; i++){ %>
 <%   if (posts[i].createdAt.split('-')[1] === '03'){ %>
-<%     total += posts[i].costOfItem %>
+<%     total += posts[i].costOfItem * posts[i].numOfItems %>
 <%   } %>
 <% } %>
 <% return total %>
@@ -299,7 +299,7 @@
 <% let jul = july(); %>
 <% let aug = august(); %>
 <% let sep = september(); %>
-<% let oct = october() %>
+<% let oct = october(); %>
 <% let nov = november(); %>
 <% let dec = december(); %>
 
