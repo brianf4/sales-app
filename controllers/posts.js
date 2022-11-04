@@ -1,4 +1,4 @@
-const cloudinary = require("../middleware/cloudinary");
+//const cloudinary = require("../middleware/cloudinary");
 const Post = require("../models/Post");
 const User = require("../models/User")
 module.exports = {
@@ -8,6 +8,7 @@ module.exports = {
       const posts = await Post.find({user: userId}) //user.id == posts.user (users posts)
       const profile = await User.findById(userId);
       res.render("profile.ejs", { profile: profile, user: req.user, posts: posts}); 
+      console.log(Post)
     } catch (err) {
       console.log(err);
     }
@@ -47,19 +48,35 @@ module.exports = {
       console.log(err);
     }
   },
-  likePost: async (req, res) => {
-    try {
-      await Post.findOneAndUpdate(
-        { _id: req.params.id },
-        {
-          $inc: { likes: 1 },
-        }
-      );
-      console.log("Likes +1");
-      res.redirect(`/post/${req.params.id}`);
-    } catch (err) {
-      console.log(err);
-    }
+  increment: async (req, res) => {
+      try {
+        await Post.findOneAndUpdate(
+          { _id: req.params.id },
+          {
+            $inc: { numOfItems: 1 },
+          }
+        );
+        console.log("qty +1");
+        console.log(req.body.numOfItems);
+        res.redirect(`/profile/${req.user._id}`);
+      } catch (err) {
+        console.log(err);
+      }
+  },
+  decrement: async (req, res) => {
+      try {
+        
+        await Post.findOneAndUpdate(
+          { _id: req.params.id },
+          {
+            $inc: { numOfItems: -1 },
+          }
+        );
+        console.log(req.body.numOfItems);
+        res.redirect(`/profile/${req.user._id}`);
+      } catch (err) {
+        console.log(err);
+      }
   },
   deletePost: async (req, res) => {
     try {

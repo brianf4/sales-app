@@ -143,11 +143,21 @@
                   <td> <%= posts[i].createdAt %> </td>
                   <td> <%= posts[i].nameOfItem %> </td>
                   <td> <%= '$' + posts[i].costOfItem * posts[i].numOfItems %> </td>
-                  <td> <i class="p-1 border-1 border-black fa-solid fa-minus hover:cursor-pointer hover:bg-accent hover:text-white hover:border-accent rounded"></i> 
+                  <td>
+                    <form class="inline" action="/post/decrement/<%= posts[i]._id %>?_method=PUT" method="POST">
+                      <button class="px-2" type="submit">
+                        <i class="p-1 border-1 border-black fa-solid fa-minus hover:cursor-pointer hover:bg-accent hover:text-white hover:border-accent rounded"></i>
+                      </button>
+                    </form> 
+                     
 
                     <span class="px-3 font-semibold"> <%= posts[i].numOfItems %> </span> 
 
-                    <i class=" p-1 border-1 border-black fa-solid fa-plus hover:cursor-pointer hover:bg-primary hover:text-white hover:border-primary rounded"></i> 
+                    <form class="inline" action="/post/increment/<%= posts[i]._id %>?_method=PUT" method="POST">
+                      <button class="px-2" type="submit">
+                        <i class=" p-1 border-1 border-black fa-solid fa-plus hover:cursor-pointer hover:bg-primary hover:text-white hover:border-primary rounded"></i>
+                      </button>
+                    </form>
 
                     <form action="/post/deletePost/<%= posts[i]._id %>?_method=DELETE" method="POST" class="inline">
                       <button class="px-2" type="submit">
@@ -173,7 +183,7 @@
 <% let total = 0 %>
 <%   for (let i = 0; i < posts.length; i++){ %>
 <%   if (posts[i].createdAt.split('-')[1] === '01'){ %>
-<%     total += posts[i].costOfItem %>
+<%     total += posts[i].costOfItem * posts[i].numOfItems%>
 <%   } %>
 <% } %>
 <% return total %>
@@ -184,7 +194,7 @@
 <% let total = 0 %>
 <%   for (let i = 0; i < posts.length; i++){ %>
 <%   if (posts[i].createdAt.split('-')[1] === '02'){ %>
-<%     total += posts[i].costOfItem %>
+<%     total += posts[i].costOfItem * posts[i].numOfItems%>
 <%   } %>
 <% } %>
 <% return total %>
@@ -204,7 +214,7 @@
 <% let total = 0 %>
 <%   for (let i = 0; i < posts.length; i++){ %>
 <%   if (posts[i].createdAt.split('-')[1] === '04'){ %>
-<%     total += posts[i].costOfItem %>
+<%     total += posts[i].costOfItem * posts[i].numOfItems%>
 <%   } %>
 <% } %>
 <% return total %>
@@ -214,7 +224,7 @@
 <% let total = 0 %>
 <%   for (let i = 0; i < posts.length; i++){ %>
 <%   if (posts[i].createdAt.split('-')[1] === '05'){ %>
-<%     total += posts[i].costOfItem %>
+<%     total += posts[i].costOfItem * posts[i].numOfItems%>
 <%   } %>
 <% } %>
 <% return total %>
@@ -224,7 +234,7 @@
 <% let total = 0 %>
 <%   for (let i = 0; i < posts.length; i++){ %>
 <%   if (posts[i].createdAt.split('-')[1] === '06'){ %>
-<%     total += posts[i].costOfItem %>
+<%     total += posts[i].costOfItem * posts[i].numOfItems%>
 <%   } %>
 <% } %>
 <% return total %>
@@ -234,7 +244,7 @@
 <% let total = 0 %>
 <%   for (let i = 0; i < posts.length; i++){ %>
 <%   if (posts[i].createdAt.split('-')[1] === '07'){ %>
-<%     total += posts[i].costOfItem %>
+<%     total += posts[i].costOfItem * posts[i].numOfItems%>
 <%   } %>
 <% } %>
 <% return total %>
@@ -244,7 +254,7 @@
 <% let total = 0 %>
 <%   for (let i = 0; i < posts.length; i++){ %>
 <%   if (posts[i].createdAt.split('-')[1] === '08'){ %>
-<%     total += posts[i].costOfItem %>
+<%     total += posts[i].costOfItem * posts[i].numOfItems%>
 <%   } %>
 <% } %>
 <% return total %>
@@ -254,7 +264,7 @@
 <% let total = 0 %>
 <%   for (let i = 0; i < posts.length; i++){ %>
 <%   if (posts[i].createdAt.split('-')[1] === '09'){ %>
-<%     total += posts[i].costOfItem %>
+<%     total += posts[i].costOfItem * posts[i].numOfItems%>
 <%   } %>
 <% } %>
 <% return total %>
@@ -264,7 +274,7 @@
 <% let total = 0 %>
 <%   for (let i = 0; i < posts.length; i++){ %>
 <%   if (posts[i].createdAt.split('-')[1] === '10'){ %>
-<%     total += posts[i].costOfItem %>
+<%     total += posts[i].costOfItem * posts[i].numOfItems%>
 <%   } %>
 <% } %>
 <% return total %>
@@ -274,7 +284,7 @@
 <% let total = 0 %>
 <%   for (let i = 0; i < posts.length; i++){ %>
 <%   if (posts[i].createdAt.split('-')[1] === '11'){ %>
-<%     total += posts[i].costOfItem %>
+<%     total += posts[i].costOfItem * posts[i].numOfItems%>
 <%   } %>
 <% } %>
 <% return total %>
@@ -284,7 +294,7 @@
 <% let total = 0 %>
 <%   for (let i = 0; i < posts.length; i++){ %>
 <%   if (posts[i].createdAt.split('-')[1] === '12'){ %>
-<%     total += posts[i].costOfItem %>
+<%     total += posts[i].costOfItem * posts[i].numOfItems%>
 <%   } %>
 <% } %>
 <% return total %>
