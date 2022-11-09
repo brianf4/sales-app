@@ -8,7 +8,7 @@ module.exports = {
       const posts = await Post.find({user: userId}) //user.id == posts.user (users posts)
       const profile = await User.findById(userId);
       res.render("profile.ejs", { profile: profile, user: req.user, posts: posts}); 
-      console.log(Post)
+      
     } catch (err) {
       console.log(err);
     }
@@ -23,9 +23,11 @@ module.exports = {
   },
   getFeed: async (req, res) => {
     try {
-      const posts = await Post.find().sort({ createdAt: "desc" }).lean();
-      res.render("feed.ejs", { posts: posts });
-      console.log(posts)
+      //const posts = await Post.find().sort({ createdAt: "desc" }).lean();
+      const userId = req.params.id;
+      const posts = await Post.find({user: userId}) //user.id == posts.user (users posts)
+      const profile = await User.findById(userId);
+      res.render("feed.ejs", { profile: profile, user: req.user, posts: posts});
     } catch (err) {
       console.log(err);
     }
@@ -57,7 +59,6 @@ module.exports = {
           }
         );
         console.log("qty +1");
-        console.log(req.body.numOfItems);
         res.redirect(`/profile/${req.user._id}`);
       } catch (err) {
         console.log(err);
@@ -65,14 +66,13 @@ module.exports = {
   },
   decrement: async (req, res) => {
       try {
-        
         await Post.findOneAndUpdate(
           { _id: req.params.id },
           {
             $inc: { numOfItems: -1 },
           }
         );
-        console.log(req.body.numOfItems);
+        console.log("qty -1");
         res.redirect(`/profile/${req.user._id}`);
       } catch (err) {
         console.log(err);
@@ -81,13 +81,12 @@ module.exports = {
   deletePost: async (req, res) => {
     try {
       // Find post by id
-      let post = await Post.findById({ _id: req.params.id });
+      //let post = await Post.findById({ _id: req.params.id });
       // Delete image from cloudinary
       //await cloudinary.uploader.destroy(post.cloudinaryId);
-     
+      
       // Delete post from db
       await Post.remove({ _id: req.params.id });
-      console.log(req.params.id);
       res.redirect(`/profile/${req.user._id}`);
 
     } catch (err) {

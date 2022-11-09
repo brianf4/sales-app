@@ -2,7 +2,7 @@
 
 <div class="p-3 h-full border-2 border-red-400 flex flex-col">
   <div class="navbar bg-base-300 rounded-t-md">
-    <a class="btn btn-ghost normal-case text-4xl" href="/profile">Inventory Management App</a>
+    <a class="btn btn-ghost normal-case text-4xl" href="/profile/<%= user._id %>">Inventory Management App</a>
 
     <div class="gap-x-6">
 
@@ -27,12 +27,12 @@
             <ul class="pt-20 text-center text-2xl flex flex-col gap-y-20">
                 <li>
                   <button class="text-2xl btn btn-lg btn-wide btn-primary w-10/12">
-                    <a class="hover:text-white" href="#"><i class="fa-solid fa-cube"></i> Dashboard</a>
+                    <a class="hover:text-white" href="/profile/<%= user._id %>"><i class="fa-solid fa-cube"></i> Dashboard</a>
                   </button>
                 </li>
                 <li>
                   <button class="text-2xl btn btn-lg btn-wide btn-primary w-10/12">
-                    <a class="hover:text-white" href="/posts"><i class="fa-regular fa-clipboard"></i> Inventory</a>
+                    <a class="hover:text-white" href="/feed/<%= user._id %>"><i class="fa-regular fa-clipboard"></i> Inventory</a>
                   </button>
                 </li>
                 <li>
@@ -51,37 +51,38 @@
 
     <div class="rightSide flex flex-col justify-around py-4 px-4 border-2 border-red-300">
         
-          <div class="stats shadow drop-shadow-sm border-2 border-black">
+          <div class="stats shadow drop-shadow-sm border-2 border-black p-4">
     
             <div class="stat">
               <div class="stat-figure text-primary">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="inline-block w-8 h-8 stroke-current"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg>
+                <i class="fa-solid fa-boxes-stacked text-4xl"></i>
               </div>
-              <div class="stat-title ">Total Items</div>
-              <div class="stat-value text-primary"> <%= posts.length %> </div>
-              <div class="stat-desc">21% more than last month</div>
+              <div class="stat-title text-2xl font-semibold">Total Items</div>
+              <div class="stat-value text-primary"> <%= posts.reduce((sum, current) => sum + current.numOfItems, 0) %> </div>
             </div>
             
             <div class="stat">
-              <div class="stat-figure text-secondary">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="inline-block w-8 h-8 stroke-current"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+              <div class="stat-figure text-primary">
+                <i class="fa-solid fa-dollar-sign text-4xl"></i>
               </div>
-              <div class="stat-title">Page Views</div>
-              <div class="stat-value text-secondary">2.6M</div>
-              <div class="stat-desc">21% more than last month</div>
+              <div class="stat-title text-2xl font-semibold">Total Revenue</div>
+              <div class="stat-value text-secondary">
+                <%= '$ ' + posts.reduce((sum, current) => sum + (current.costOfItem * current.numOfItems), 0).toFixed(2)%>
+              </div>
             </div>
             
             <div class="stat">
-              <div class="stat-figure text-secondary">
-                <div class="avatar online">
-                  <div class="w-16 rounded-full">
-                    <img src="https://placeimg.com/128/128/people" />
-                  </div>
+              <div class="stat-figure text-primary">
+                <div class="">
+                  <i class="fa-solid fa-money-bill text-4xl"></i>
                 </div>
               </div>
-              <div class="stat-value">86%</div>
-              <div class="stat-title">Tasks done</div>
-              <div class="stat-desc text-secondary">31 tasks remaining</div>
+              <div class="stat-value">
+                <% let average = posts.reduce((sum, current) => sum + (current.costOfItem * current.numOfItems), 0) / posts.reduce((sum, current) => sum + current.numOfItems, 0) %>
+
+                <%= '$ ' + average.toFixed(2) %>
+              </div>
+              <div class="stat-title text-2xl font-semibold">Average Cost</div>
             </div>
             
           </div>
@@ -120,7 +121,7 @@
           
           <div class="border-2 border-black">
             <table class="table table-zebra w-full">
-              <h3>Recent Items</h3>
+              <h3 class="text-xl p-2 text-green-500">Recent Items</h3>
               <!-- head -->
               <thead>
                 <tr>
