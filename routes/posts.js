@@ -15,4 +15,6 @@ router.put("/decrement/:id", postsController.decrement);
 
 router.delete("/deletePost/:id", postsController.deletePost);
 
+router.delete("/deleteinventory/:id", postsController.deleteInventory);
+
 module.exports = router;

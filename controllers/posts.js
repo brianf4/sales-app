@@ -93,4 +93,14 @@ module.exports = {
       res.redirect(`/profile/${req.params.id}`);
     }
   },
+  deleteInventory: async (req, res) => {
+    try {
+      // Delete post from db
+      await Post.remove({ _id: req.params.id });
+      res.redirect(`/feed/${req.user._id}`);
+
+    } catch (err) {
+      res.redirect(`/feed/${req.params.id}`);
+    }
+  },
 };

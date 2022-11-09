@@ -22,30 +22,38 @@
 
   <div class="mainContainer border-2 h-full border-green-400 flex">
     <div class="leftSide">
-        <aside>
-            <ul class="pt-20 text-center text-2xl flex flex-col gap-y-20">
-                <li>
-                  <button class="text-2xl btn btn-lg btn-wide btn-primary w-10/12">
-                    <a class="hover:text-white" href="/profile/<%= user._id %>"><i class="fa-solid fa-cube"></i> Dashboard</a>
-                  </button>
-                </li>
-                <li>
-                  <button class="text-2xl btn btn-lg btn-wide btn-primary w-10/12">
-                    <a class="hover:text-white" href="/feed/<%= user._id %>"><i class="fa-regular fa-clipboard"></i> Inventory</a>
-                  </button>
-                </li>
-                <li>
-                  <button class="text-2xl btn btn-lg btn-wide btn-primary w-10/12">
-                    <a class="hover:text-white" href=""><i class="fa-solid fa-chart-line"></i> Sales</a>
-                  </button>
-                </li>
-                <li>
-                  <button class="text-2xl btn btn-lg btn-wide btn-primary w-10/12">
-                    <a class="hover:text-white" href=""><i class="fa-solid fa-gear"></i> Settings</a>
-                  </button>
-                </li>
-            </ul>
-        </aside>
+      <aside>
+        <ul class="pt-20 text-center text-2xl flex flex-col gap-y-20">
+            <li>
+              <a class="hover:text-white" href="/profile/<%= user._id %>">
+                <button class="text-2xl btn btn-lg btn-wide btn-primary w-10/12">
+                  <i class="fa-solid fa-cube pr-2"></i> Dashboard
+                </button>
+              </a>
+            </li>
+            <li>
+              <a class="hover:text-white" href="/feed/<%= user._id %>">
+                <button class="text-2xl btn btn-lg btn-wide btn-primary w-10/12">
+                  <i class="fa-regular fa-clipboard pr-2"></i> Inventory
+                </button>
+              </a>
+            </li>
+            <li>
+              <a class="hover:text-white" href="">
+                <button class="text-2xl btn btn-lg btn-wide btn-primary w-10/12">
+                  <i class="fa-solid fa-chart-line pr-2"></i> Sales
+                </button>
+              </a>
+            </li>
+            <li>
+              <a class="hover:text-white" href="">
+                <button class="text-2xl btn btn-lg btn-wide btn-primary w-10/12">
+                  <i class="fa-solid fa-gear pr-2"></i> Settings
+                </button>
+              </a>
+            </li>
+        </ul>
+    </aside>
     </div>
 
     <div class="rightSide border-2 border-red-300 flex flex-col justify-center px-4">
@@ -70,7 +78,7 @@
               <th> <%= '#' + posts[i]._id.toString().slice(-5).toUpperCase() %> </th>
               <td> <%= posts[i].createdAt %> </td>
               <td> <%= posts[i].nameOfItem %> </td>
-              <td> <%= '$' + posts[i].costOfItem * posts[i].numOfItems %> </td>
+              <td> <%= '$ ' + posts[i].costOfItem * posts[i].numOfItems %> </td>
               <td>
                 <form class="inline" action="/post/decrement/<%= posts[i]._id %>?_method=PUT" method="POST">
                   <button class="px-2" type="submit">
@@ -78,7 +86,6 @@
                   </button>
                 </form> 
                  
-
                 <span class="px-3 font-semibold"> <%= posts[i].numOfItems %> </span> 
 
                 <form class="inline" action="/post/increment/<%= posts[i]._id %>?_method=PUT" method="POST">
@@ -87,7 +94,7 @@
                   </button>
                 </form>
 
-                <form action="/post/deletePost/<%= posts[i]._id %>?_method=DELETE" method="POST" class="inline">
+                <form action="/post/deleteInventory/<%= posts[i]._id %>?_method=DELETE" method="POST" class="inline">
                   <button class="px-2" type="submit">
                     <i class="pl-2 fa-solid fa-trash-can hover:cursor-pointer hover:-rotate-12"></i>
                   </button>
