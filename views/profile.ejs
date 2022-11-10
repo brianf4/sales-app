@@ -1,12 +1,12 @@
 <%- include('partials/header') -%>
 
 <div class="p-3 h-full border-2 border-red-400 flex flex-col">
-  <div class="navbar bg-base-300 rounded-t-md">
-    <a class="btn btn-ghost normal-case text-4xl" href="/profile/<%= user._id %>">Inventory Management App</a>
+  <div class="bg-base-300 rounded-t-md flex justify-between">
+    <a class="btn btn-ghost normal-case text-4xl self-center" href="/profile/<%= user._id %>">Inventory Management App
+    </a>
 
-    <div class="gap-x-6">
-
-      <h2 id="change" class="text-4xl font-semibold"> <%= user.userName %></h2>
+    <div class="gap-x-6 flex">
+      <h2 id="change" class="text-4xl font-semibold self-center"> <%= user.userName %></h2>
       <div class="avatar placeholder dropdown dropdown-end">
         <label tabindex="0" class="btn m-1 bg-neutral-focus text-neutral-content rounded-full h-24 w-24 text-4xl">
           <%= user.userName[0] %>
