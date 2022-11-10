@@ -134,7 +134,7 @@
                   </div>
                   <div class="mb-3 border-2">
                     <label for="date"></label>
-                    <input type="date" class="text-2xl w-full" id="createdAt" name="createdAt" required>
+                    <input type="date" class="text-2xl w-full px-4" id="createdAt" name="createdAt" required>
                   </div>
                   <button class="btn btn-outline btn-success">Success</button>
                 </form>
@@ -205,15 +205,14 @@
 </div> 
 
 <%  function january() { %>
-<% let total = 0 %>
-<%   for (let i = 0; i < posts.length; i++){ %>
-<%   if (posts[i].createdAt.split('-')[1] === '01'){ %>
-<%     total += posts[i].costOfItem * posts[i].numOfItems%>
+<%    let total = 0 %>
+<%    for (let i = 0; i < posts.length; i++){ %>
+<%      if (posts[i].createdAt.split('-')[1] === '01'){ %>
+<%        total += posts[i].costOfItem * posts[i].numOfItems%>
 <%   } %>
 <% } %>
 <% return total %>
 <% } %>
-
 
 <%  function february() { %>
 <% let total = 0 %>
