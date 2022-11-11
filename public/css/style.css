@@ -82,3 +82,9 @@ div.rightSide {
 #indexbg-image {
     background: no-repeat center/80%  url(../imgs/3515462.jpg);
 }
+
+@media screen and (max-height: 776px){
+    #top-stat {
+        display: none;
+    }
+}
