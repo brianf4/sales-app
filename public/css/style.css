@@ -87,11 +87,11 @@ div.rightSide {
     background: no-repeat center/80%  url(../imgs/3515462.jpg);
 }
 /* Height media query */
-@media screen and (max-height: 845px){
+ @media screen and (max-height: 780px){
     #top-stat {
         display: none;
     }
-}
+} 
 
 /* Width media query */
 @media screen and (max-width: 1299px){
