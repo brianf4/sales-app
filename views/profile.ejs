@@ -81,12 +81,12 @@
         <div class="drawer-content">
           <!-- Page content here -->
           <label for="my-drawer" class="btn btn-primary drawer-button">Open drawer</label>
-          <section class="graph flex justify-between gap-x-12 p-8 border-2 border-black">
-            <div class="w-3/4 border-2 border-black">
+          <section class="graph flex flex-col items-center p-8 border-2 border-black h-full">
+            <div class="w-5/6 border-2 border-black">
               <canvas id="myChart1" class=""></canvas>
             </div>
 
-            <div class="card border-2 border-black w-1/4">
+            <div class="card border-2 border-black w-2/4">
               <span class="block text-center text-5xl font-semibold py-4">Add Item</span>
               <div class="h-full px-2">
                 <form action="/post/createPost" enctype="multipart/form-data" method="POST">
