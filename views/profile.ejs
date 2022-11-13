@@ -74,6 +74,56 @@
     </div>
 
     <div class="rightSide flex flex-col justify-around py-4 px-4 border-2 border-red-300">
+
+      <!-- Mobile Drawer -->
+      <div class="drawer">
+        <input id="my-drawer" type="checkbox" class="drawer-toggle" />
+        <div class="drawer-content">
+          <!-- Page content here -->
+          <label for="my-drawer" class="btn btn-primary drawer-button">Open drawer</label>
+          <section class="graph flex justify-between gap-x-12 p-8 border-2 border-black">
+            <div class="w-3/4 border-2 border-black">
+              <canvas id="myChart1" class=""></canvas>
+            </div>
+
+            <div class="card border-2 border-black w-1/4">
+              <span class="block text-center text-5xl font-semibold py-4">Add Item</span>
+              <div class="h-full px-2">
+                <form action="/post/createPost" enctype="multipart/form-data" method="POST">
+                  <div class="mb-3">
+                    <label for="title" class="form-label text-2xl">Name of the Item</label>
+                    <input type="text" class="form-control text-3xl" id="nameOfItem" name="nameOfItem" required>
+                  </div>
+                  <div class="mb-3">
+                    <label for="cost" class="form-label text-2xl">Cost of Item</label>
+                    <input id="price" placeholder="$" type="text" class="form-control text-3xl before:content-['$']" id="costOfItem" name="costOfItem" required>
+                  </div>
+                  <div class="mb-3">
+                    <label for="items" class="form-label text-2xl">Amnt of Items</label>
+                    <input type="number" class="form-control text-3xl" id="numOfItems" name="numOfItems" required>
+                  </div>
+                  <div class="mb-3 border-2">
+                    <label for="date"></label>
+                    <input type="date" class="text-2xl w-full px-4" id="createdAt" name="createdAt" required>
+                  </div>
+                  <button class="btn btn-outline btn-success">Success</button>
+                </form>
+              </div>
+            </div>
+          </section>
+
+        </div> 
+        <div class="drawer-side">
+          <label for="my-drawer" class="drawer-overlay"></label>
+          <ul class="menu p-4 w-80 bg-base-100 text-base-content">
+            <!-- Sidebar content here -->
+            <li><a>Sidebar Item 1</a></li>
+            <li><a>Sidebar Item 2</a></li>
+            
+          </ul>
+        </div>
+      </div>
+
         
           <div id="top-stat" class="stats shadow drop-shadow-sm border-2 border-black p-2">
     
@@ -111,14 +161,14 @@
             
           </div>
 
-          <section class="graph flex justify-between gap-x-12 p-8 border-2 border-black">
+          <section class="idkTest graph flex justify-between gap-x-12 p-8 border-2 border-black">
             <div class="w-3/4 border-2 border-black">
               <canvas id="myChart" class=""></canvas>
             </div>
 
             <div class="card border-2 border-black w-1/4">
               <span class="block text-center text-5xl font-semibold py-4">Add Item</span>
-              <div class="border-2 border-cyan-300 h-full">
+              <div class="h-full px-2">
                 <form action="/post/createPost" enctype="multipart/form-data" method="POST">
                   <div class="mb-3">
                     <label for="title" class="form-label text-2xl">Name of the Item</label>
@@ -143,7 +193,7 @@
           </section>
 
           
-          <div class="border-2 border-black">
+          <div class="recentItems border-2 border-black">
             <table class="table table-zebra w-full">
               <h3 class="text-xl p-2 text-green-500">Recent Items</h3>
               <!-- head -->
@@ -372,6 +422,12 @@
 <script>
   const myChart = new Chart(
     document.getElementById('myChart'),
+    config
+  );
+</script>
+<script>
+  const myChart1 = new Chart(
+    document.getElementById('myChart1'),
     config
   );
 </script>

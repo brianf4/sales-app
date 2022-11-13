@@ -38,6 +38,10 @@ aside ul {
     row-gap: 30px;
 }
 
+.hidden {
+    display: none;
+}
+
 /******************************************
 /* LAYOUT
 /*******************************************/
@@ -82,9 +86,37 @@ div.rightSide {
 #indexbg-image {
     background: no-repeat center/80%  url(../imgs/3515462.jpg);
 }
-
-@media screen and (max-height: 776px){
+/* Height media query */
+@media screen and (max-height: 845px){
     #top-stat {
+        display: none;
+    }
+}
+
+/* Width media query */
+@media screen and (max-width: 1299px){
+    .leftSide {
+        display: none;
+    }
+    .rightSide {
+        width: 100% !important;
+    }
+    .recentItems {
+        display: none;
+    }
+    #top-stat {
+        display: none;
+    }
+    .idkTest {
+        display: none !important;
+    }
+}
+
+@media (min-width: 1300px){
+    .drawer {
+        display: none;
+    }
+    .mobile-graph {
         display: none;
     }
 }
