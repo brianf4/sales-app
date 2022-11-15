@@ -35,14 +35,15 @@
                 <li>
                   <a class="hover:text-white" href="/feed/<%= user._id %>">
                     <button class="text-2xl btn btn-lg btn-wide btn-primary w-10/12">
-                      <i class="fa-regular fa-clipboard pr-2"></i> Inventory
+                      <i class="fa-solid fa-chart-line pr-2"></i> Sales
+                      
                     </button>
                   </a>
                 </li>
                 <li>
                   <!-- The button to open modal -->
                   <label for="my-modal-4" class="text-2xl btn btn-lg btn-wide btn-primary w-10/12">
-                    <i class="fa-solid fa-chart-line pr-2"></i> Sales
+                    <i class="fa-regular fa-clipboard pr-2"></i> Inventory
                   </label>
 
                   <!-- Put this part before </body> tag -->
@@ -76,13 +77,13 @@
     <div class="rightSide flex flex-col justify-around py-4 px-4 border-2 border-red-300">
 
       <!-- Mobile Drawer -->
-      <div class="drawer">
+      <div class="drawer p-2">
         <input id="my-drawer" type="checkbox" class="drawer-toggle" />
         <div class="drawer-content">
           <!-- Page content here -->
-          <label for="my-drawer" class="btn btn-primary drawer-button">Open drawer</label>
+          <label for="my-drawer" class="btn btn-primary drawer-button"><i class="fa-solid fa-bars fa-2xl"></i></label>
           <section class="graph flex flex-col items-center p-8 border-2 border-black h-full">
-            <div class="w-5/6 border-2 border-black">
+            <div class="canvasChart w-5/6 border-2 border-black">
               <canvas id="myChart1" class=""></canvas>
             </div>
 
@@ -117,8 +118,55 @@
           <label for="my-drawer" class="drawer-overlay"></label>
           <ul class="menu p-4 w-80 bg-base-100 text-base-content">
             <!-- Sidebar content here -->
-            <li><a>Sidebar Item 1</a></li>
-            <li><a>Sidebar Item 2</a></li>
+            <aside>
+              <ul class="pt-20 text-center text-2xl flex flex-col gap-y-20">
+                  <li>
+                    <a class="hover:text-white" href="/profile/<%= user._id %>">
+                      <button class="text-2xl btn btn-lg btn-wide btn-primary w-10/12">
+                        <i class="fa-solid fa-cube pr-2"></i> Dashboard
+                      </button>
+                    </a>
+                  </li>
+                  <li>
+                    <a class="hover:text-white" href="/feed/<%= user._id %>">
+                      <button class="text-2xl btn btn-lg btn-wide btn-primary w-10/12">
+                        <i class="fa-solid fa-chart-line pr-2"></i> Sales
+                        
+                      </button>
+                    </a>
+                  </li>
+                  <li>
+                    <!-- The button to open modal -->
+                    <label for="my-modal-4" class="text-2xl btn btn-lg btn-wide btn-primary w-10/12">
+                      <i class="fa-regular fa-clipboard pr-2"></i> Inventory
+                    </label>
+  
+                    <!-- Put this part before </body> tag -->
+                    <input type="checkbox" id="my-modal-4" class="modal-toggle" />
+                    <label for="my-modal-4" class="modal cursor-pointer">
+                      <label class="modal-box relative" for="">
+                        <h3 class="text-lg font-bold">Coming Soon!</h3>
+                        <p class="py-4">Check back for updates.</p>
+                      </label>
+                    </label>
+                  </li>
+                  <li>
+                    <!-- The button to open modal -->
+                    <label for="my-modal-4" class="text-2xl btn btn-lg btn-wide btn-primary w-10/12">
+                      <i class="fa-solid fa-gear pr-2"></i> Settings
+                    </label>
+  
+                    <!-- Put this part before </body> tag -->
+                    <input type="checkbox" id="my-modal-4" class="modal-toggle" />
+                    <label for="my-modal-4" class="modal cursor-pointer">
+                      <label class="modal-box relative" for="">
+                        <h3 class="text-lg font-bold">Coming Soon!</h3>
+                        <p class="py-4">Check back for updates.</p>
+                      </label>
+                    </label>
+                  </li>
+              </ul>
+          </aside>
             
           </ul>
         </div>
