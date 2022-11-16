@@ -115,10 +115,10 @@ div.rightSide {
     }
     .graph {
         padding: 0 !important;
-        height: max-content !important;
+        height: 85% !important;
     }
     div.canvasChart {
-        width: 50%;
+        width: 60%;
     }
     
 }
