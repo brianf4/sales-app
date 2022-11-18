@@ -82,12 +82,17 @@
         <div class="drawer-content">
           <!-- Page content here -->
           <label for="my-drawer" class="btn btn-primary drawer-button"><i class="fa-solid fa-bars fa-2xl"></i></label>
-          <section class="graph flex flex-col items-center p-8 border-2 border-black h-full">
+          <section class="graph flex flex-col gap-y-4 items-center justify-between p-8 border-2 border-black h-full">
             <div class="canvasChart w-5/6 border-2 border-black">
               <canvas id="myChart1" class=""></canvas>
             </div>
+            <select id="itemSelect" class="select select-lg select-primary w-full max-w-xs">
+              <option selected>Add Item</option>
+              <option>Items Sold</option>
+              <option disabled>Inventory</option>
+            </select>
 
-            <div class="card border-2 border-black w-2/4">
+            <div id="addItem" class="card border-2 border-black w-1/4">
               <span class="block text-center text-5xl font-semibold py-4">Add Item</span>
               <div class="h-full px-2">
                 <form action="/post/createPost" enctype="multipart/form-data" method="POST">
@@ -111,9 +116,67 @@
                 </form>
               </div>
             </div>
+
+            <div id="itemsSold" class="hidden border-2 border-black">
+              <table class="table table-zebra w-full">
+                <h3 class="text-xl p-2 text-green-500">Recent Items</h3>
+                <!-- head -->
+                <thead>
+                  <tr>
+                    <th class="text-2xl font-bold">Item Id</th>
+                    <th class="text-2xl font-bold">Date</th>
+                    <th class="text-2xl font-bold">Name</th>
+                    <th class="text-2xl font-bold">Cost</th>
+                    <th class="text-2xl font-bold">QTY</th>
+                  </tr>
+                </thead>
+                <tbody>  
+                  
+                  <% for (let i = 0; i < posts.length; i++) { %>
+                    <% if( i === 4) {%>
+                    <% break; %>
+                    <%}%>  
+                  <!-- Row -->
+                  <tr class="text-2xl">
+                    <th> <%= '#' + posts[i]._id.toString().slice(-5).toUpperCase() %> </th>
+                    <td> <%= posts[i].createdAt %> </td>
+                    <td> <%= posts[i].nameOfItem %> </td>
+                    <td> <%= '$' + posts[i].costOfItem * posts[i].numOfItems %> </td>
+                    <td>
+                      <form class="inline" action="/post/decrement/<%= posts[i]._id %>?_method=PUT" method="POST">
+                        <button class="px-2" type="submit">
+                          <i class="p-1 border-1 border-black fa-solid fa-minus hover:cursor-pointer hover:bg-accent hover:text-white hover:border-accent rounded"></i>
+                        </button>
+                      </form> 
+                       
+  
+                      <span class="px-3 font-semibold"> <%= posts[i].numOfItems %> </span> 
+  
+                      <form class="inline" action="/post/increment/<%= posts[i]._id %>?_method=PUT" method="POST">
+                        <button class="px-2" type="submit">
+                          <i class=" p-1 border-1 border-black fa-solid fa-plus hover:cursor-pointer hover:bg-primary hover:text-white hover:border-primary rounded"></i>
+                        </button>
+                      </form>
+  
+                      <form action="/post/deletePost/<%= posts[i]._id %>?_method=DELETE" method="POST" class="inline">
+                        <button class="px-2" type="submit">
+                          <i class="pl-2 fa-solid fa-trash-can hover:cursor-pointer hover:-rotate-12"></i>
+                        </button>
+                      </form>
+  
+                    </td>
+                  </tr>
+                  <% } %>
+                </tbody>
+              </table>
+            </div>
+
+            
+
           </section>
 
         </div> 
+
         <div class="drawer-side">
           <label for="my-drawer" class="drawer-overlay"></label>
           <ul class="menu p-4 w-80 bg-base-100 text-base-content">
@@ -170,8 +233,8 @@
             
           </ul>
         </div>
-      </div>
 
+      </div>
         
           <div id="top-stat" class="stats shadow drop-shadow-sm border-2 border-black p-2">
     
@@ -238,6 +301,7 @@
                 </form>
               </div>
             </div>
+            
           </section>
 
           
