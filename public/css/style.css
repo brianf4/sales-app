@@ -117,7 +117,20 @@ div.rightSide {
     div.canvasChart {
         width: 50%;
     }
-   
+   .mobileButtons li{
+    padding: 0 !important;
+   }
+   .mobileButtons li label, .mobileButtons li a button {
+    font-size: 1.2rem !important;
+    width: 100%;
+   }
+   .mobileButtons li a button {
+    
+   }
+   .mobileButtons li a {
+    background: none;
+    padding: 0;
+   }
 }
 
 @media (min-width: 1300px){

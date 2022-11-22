@@ -74,7 +74,7 @@
         </aside>
     </div>
 
-    <div class="rightSide flex flex-col justify-around py-4 px-4 border-2 border-red-300">
+    <div class="rightSide flex flex-col justify-around py-4 px-4">
 
       <!-- Mobile Drawer -->
       <div class="drawer p-2">
@@ -82,14 +82,14 @@
         <div class="drawer-content">
           <!-- Page content here -->
           <label for="my-drawer" class="btn btn-primary drawer-button"><i class="fa-solid fa-bars fa-2xl"></i></label>
-          <section class="graph flex flex-col gap-y-4 items-center justify-between p-8 border-2 border-black h-full">
+          <section class="graph flex flex-col gap-y-4 items-center justify-between p-8 h-full">
             <div class="canvasChart w-5/6 border-2 border-black">
               <canvas id="myChart1" class=""></canvas>
             </div>
             <select id="itemSelect" class="select select-lg select-primary w-full max-w-xs">
-              <option selected>Add Item</option>
-              <option>Items Sold</option>
-              <option disabled>Inventory</option>
+              <option class="first" selected>Add Item</option>
+              <option class="second">Items Sold</option>
+              <option class="third" disabled>Inventory</option>
             </select>
 
             <div id="addItem" class="card border-2 border-black w-1/4">
@@ -179,10 +179,8 @@
 
         <div class="drawer-side">
           <label for="my-drawer" class="drawer-overlay"></label>
-          <ul class="menu p-4 w-80 bg-base-100 text-base-content">
+          <ul class="menu p-4 w-80 bg-base-100 text-base-content flex flex-col gap-y-20 mobileButtons">
             <!-- Sidebar content here -->
-            <aside>
-              <ul class="pt-20 text-center text-2xl flex flex-col gap-y-20">
                   <li>
                     <a class="hover:text-white" href="/profile/<%= user._id %>">
                       <button class="text-2xl btn btn-lg btn-wide btn-primary w-10/12">
@@ -228,9 +226,6 @@
                       </label>
                     </label>
                   </li>
-              </ul>
-          </aside>
-            
           </ul>
         </div>
 

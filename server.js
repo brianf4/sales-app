@@ -26,7 +26,7 @@ app.set("view engine", "ejs");
 
 //Static Folder
 app.use(express.static("public"));
-//app.use(express.static(publicJsPath.join(__dirname, "js")));
+
 
 
 
@@ -63,5 +63,5 @@ app.use("/post", postRoutes);
 
 //Server Running
 app.listen(process.env.PORT, () => {
-  console.log("Server is running, you better catch it!");
+  console.log("Server is running...");
 });
