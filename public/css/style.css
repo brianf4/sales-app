@@ -124,12 +124,12 @@ div.rightSide {
     font-size: 1.2rem !important;
     width: 100%;
    }
-   .mobileButtons li a button {
-    
-   }
    .mobileButtons li a {
     background: none;
     padding: 0;
+   }
+   .itemsTable {
+    display: none;
    }
 }
 
@@ -142,5 +142,32 @@ div.rightSide {
     }
     .select {
         display: none;
+    }
+}
+
+@media (max-width: 1200px) {
+    #addItem {
+        width: 30%;
+    }
+    div.canvasChart {
+        width: 60%;
+    }
+}
+
+@media (max-width: 850px) {
+    #addItem {
+        width: 40%;
+    }
+    div.canvasChart {
+        width: 70%;
+    }
+}
+
+@media (max-width: 650px) {
+    #addItem {
+        width: 60%;
+    }
+    div.canvasChart {
+        width: 80%;
     }
 }

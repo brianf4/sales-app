@@ -1,11 +1,11 @@
 <%- include('partials/header') -%>
-<div class="p-3 h-full border-2 border-red-400 flex flex-col">
-  <div class="navbar bg-base-300 rounded-t-md">
-    <a class="btn btn-ghost normal-case text-4xl" href="/profile/<%= user._id %>">Happy Sales</a>
+<div class="p-3 h-full flex flex-col">
+  <div class="bg-base-300 rounded-t-md flex justify-between">
+    <a class="btn btn-ghost normal-case text-4xl self-center" href="/profile/<%= user._id %>">Happy Sales
+    </a>
 
-    <div class="gap-x-6">
-
-      <h2 id="change" class="text-4xl font-semibold"> <%= user.userName %></h2>
+    <div class="gap-x-6 flex">
+      <h2 id="change" class="text-4xl font-semibold self-center"> <%= user.userName %></h2>
       <div class="avatar placeholder dropdown dropdown-end">
         <label tabindex="0" class="btn m-1 bg-neutral-focus text-neutral-content rounded-full h-24 w-24 text-4xl">
           <%= user.userName[0] %>
@@ -72,10 +72,9 @@
         </ul>
     </aside>
     </div>
-
-    <div class="rightSide border-2 border-red-300 flex flex-col justify-center px-4">
-
-      <div class="overflow-x-auto border-2 border-black rounded">
+    <div class="rightSide flex flex-col justify-center px-4">
+      
+      <div class="overflow-x-auto border-2 border-black rounded itemsTable">
         <table class="table table-zebra w-full">
           <!-- head -->
           <thead>
@@ -123,10 +122,124 @@
           </tbody>
         </table>
       </div>
-        
-         
+    
+    <!-- **************************************************************** -->
+    <div class="drawer">
+      <input id="my-drawer" type="checkbox" class="drawer-toggle" />
+      <div class="drawer-content">
+        <!-- Page content here -->
+        <label for="my-drawer" class="m-3 btn btn-primary drawer-button">
+          <i class="fa-solid fa-bars fa-2xl"></i>
+        </label>
+        <div class="rightSide flex flex-col justify-center px-4">
+      
+          <div class="overflow-x-auto border-2 border-black rounded">
+            <table class="table table-zebra w-full">
+              <!-- head -->
+              <thead>
+                <tr>
+                  <th class="text-2xl font-bold">Item Id</th>
+                  <th class="text-2xl font-bold">Date</th>
+                  <th class="text-2xl font-bold">Name</th>
+                  <th class="text-2xl font-bold">Cost</th>
+                  <th class="text-2xl font-bold">QTY</th>
+                </tr>
+              </thead>
+              <tbody>  
+                    
+                <% for (let i = 0; i < posts.length; i++) { %>  
+                <!-- Row -->
+                <tr class="text-2xl">
+                  <th> <%= '#' + posts[i]._id.toString().slice(-5).toUpperCase() %> </th>
+                  <td> <%= posts[i].createdAt %> </td>
+                  <td> <%= posts[i].nameOfItem %> </td>
+                  <td> <%= '$ ' + posts[i].costOfItem * posts[i].numOfItems %> </td>
+                  <td>
+                    <form class="inline" action="/post/decrement/<%= posts[i]._id %>?_method=PUT" method="POST">
+                      <button class="px-2" type="submit">
+                        <i class="p-1 border-1 border-black fa-solid fa-minus hover:cursor-pointer hover:bg-accent hover:text-white hover:border-accent rounded"></i>
+                      </button>
+                    </form> 
+                     
+                    <span class="px-3 font-semibold"> <%= posts[i].numOfItems %> </span> 
+    
+                    <form class="inline" action="/post/increment/<%= posts[i]._id %>?_method=PUT" method="POST">
+                      <button class="px-2" type="submit">
+                        <i class=" p-1 border-1 border-black fa-solid fa-plus hover:cursor-pointer hover:bg-primary hover:text-white hover:border-primary rounded"></i>
+                      </button>
+                    </form>
+    
+                    <form action="/post/deleteInventory/<%= posts[i]._id %>?_method=DELETE" method="POST" class="inline">
+                      <button class="px-2" type="submit">
+                        <i class="pl-2 fa-solid fa-trash-can hover:cursor-pointer hover:-rotate-12"></i>
+                      </button>
+                    </form>
+    
+                  </td>
+                </tr>
+                <% } %>
+              </tbody>
+            </table>
+          </div>
+    
+        </div>  
+      </div> 
+      <div class="drawer-side">
+        <label for="my-drawer" class="drawer-overlay"></label>
+        <ul class="menu p-4 w-80 bg-base-100 text-base-content flex flex-col gap-y-20 mobileButtons">
+          <!-- Sidebar content here -->
+          <li>
+            <a class="hover:text-white" href="/profile/<%= user._id %>">
+              <button class="text-2xl btn btn-lg btn-wide btn-primary w-10/12">
+                <i class="fa-solid fa-cube pr-2"></i> Dashboard
+              </button>
+            </a>
+          </li>
+          <li>
+            <a class="hover:text-white" href="/feed/<%= user._id %>">
+              <button class="text-2xl btn btn-lg btn-wide btn-primary w-10/12">
+                <i class="fa-solid fa-chart-line pr-2"></i> Sales
+                
+              </button>
+            </a>
+          </li>
+          <li>
+            <!-- The button to open modal -->
+            <label for="my-modal-4" class="text-2xl btn btn-lg btn-wide btn-primary btn-disabled w-10/12">
+              <i class="fa-regular fa-clipboard pr-2"></i> Settings
+            </label>
 
-    </div>    
+            <!-- Put this part before </body> tag -->
+            <input type="checkbox" id="my-modal-4" class="modal-toggle" />
+            <label for="my-modal-4" class="modal cursor-pointer">
+              <label class="modal-box relative" for="">
+                <h3 class="text-lg font-bold">Coming Soon!</h3>
+                <p class="py-4">Check back for updates.</p>
+              </label>
+            </label>
+            
+          </li>
+          <li>
+            <!-- The button to open modal -->
+            <label for="my-modal-4" class="text-2xl btn btn-lg btn-wide btn-primary btn-disabled w-10/12">
+              <i class="fa-solid fa-gear pr-2"></i> Settings
+            </label>
+
+            <!-- Put this part before </body> tag -->
+            <input type="checkbox" id="my-modal-4" class="modal-toggle" />
+            <label for="my-modal-4" class="modal cursor-pointer">
+              <label class="modal-box relative" for="">
+                <h3 class="text-lg font-bold">Coming Soon!</h3>
+                <p class="py-4">Check back for updates.</p>
+              </label>
+            </label>
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+
+      
 
   </div>
 
